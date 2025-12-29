@@ -23,13 +23,15 @@ const About = () => {
         <p>
           بنویس یک پروژه <strong>متن‌باز</strong> است. اگر توسعه‌دهنده هستید،
           می‌توانید در پیشرفت{" "}
-          <a
-            href="https://github.com/Awmiroosen/benevis"
-            className="underline"
-            target="_blank"
-          >
-            این پروژه
-          </a>{" "}
+          <strong>
+            <a
+              href="https://github.com/Awmiroosen/benevis"
+              className="underline"
+              target="_blank"
+            >
+              این پروژه
+            </a>
+          </strong>{" "}
           مشارکت کنید.
         </p>
 

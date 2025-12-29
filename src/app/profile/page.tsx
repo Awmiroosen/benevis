@@ -7,7 +7,7 @@ import { getUserPosts } from "@/actions/user/posts";
 import { Card } from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
 import dayjs from "@/lib/dayjs";
-import { LogOut } from "lucide-react";
+import { LogOut, Pencil } from "lucide-react";
 import EditProfile from "./editProfile";
 // import { updateProfile } from "@/actions/user/profile";
 
@@ -45,7 +45,7 @@ const Profile = async ({ searchParams }: SearchParams) => {
                 className="rounded-full my-2 border-2 border-stone-300"
               />
               <h3 className="text-xl font-medium">
-                {data?.[0].author.name ?? session.user.name}
+                {data?.[0]?.author?.name ?? session?.user?.name ?? ""}
               </h3>
             </>
           )}
@@ -57,7 +57,17 @@ const Profile = async ({ searchParams }: SearchParams) => {
         {editProfile && <EditProfile />}
       </div>
       <div className="grid grid-cols-1 gap-2 px-6">
-        {data &&
+        {data.length === 0 ? (
+          <div className="w-full flex justify-center items-center flex-col">
+            <h5 className="my-8 text-2xl">نوشته ای نداری!</h5>
+            <Link href="/write">
+              <Button>
+                <Pencil size={16} className="ml-1" />
+                از اینجا میتونی بنویسی
+              </Button>
+            </Link>
+          </div>
+        ) : (
           data.map((post) => (
             <Card key={post.id}>
               <Card.Head
@@ -75,7 +85,8 @@ const Profile = async ({ searchParams }: SearchParams) => {
                 <Card.Foot.Delete postId={post.id} />
               </Card.Foot>
             </Card>
-          ))}
+          ))
+        )}
       </div>
     </section>
   );
