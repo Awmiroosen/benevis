@@ -1,0 +1,25 @@
+.navItem {
+  width: 33.333333333333333%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.navLink {
+  padding: 0.4rem;
+  border-radius: 100%;
+}
+
+.itemLabel {
+  position: absolute;
+  bottom: 3rem;
+  font-size: 12px;
+  padding: 6px 10px;
+  visibility: hidden;
+  user-select: none;
+}
+
+.navLink:hover ~ .itemLabel {
+  visibility: visible;
+}
