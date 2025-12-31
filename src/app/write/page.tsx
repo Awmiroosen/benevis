@@ -1,6 +1,5 @@
 import { addPost } from "@/actions/posts/add";
-import Button from "@/components/ui/Button";
-import SubmitButton from "@/app/write/ActionButton";
+import SubmitButton from "@/app/write/SubmitButton";
 
 const Write = async () => {
   return (

@@ -7,7 +7,11 @@ const SubmitButton = () => {
   const { pending } = useFormStatus();
 
   return (
-    <Button type="submit" variant="primary" disable={pending}>
+    <Button
+      type={pending ? "button" : "submit"}
+      variant="primary"
+      disable={pending}
+    >
       {pending ? "در حال ارسال..." : "پست کردن"}
     </Button>
   );
