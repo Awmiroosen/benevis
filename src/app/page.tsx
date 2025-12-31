@@ -2,9 +2,11 @@ import { getPosts } from "@/actions/posts/get";
 import { Card } from "@/components/ui/Card";
 import dayjs from "@/lib/dayjs";
 import Link from "next/link";
+import { auth } from "@/lib/auth";
 
 const Home = async () => {
   const posts = await getPosts();
+  const session = await auth();
 
   return (
     <>
@@ -29,7 +31,7 @@ const Home = async () => {
               <Card.Foot>
                 <Card.Foot.Like
                   postId={post.id}
-                  isLiked={post.likes.length > 0}
+                  isLiked={!session ? false : post.likes.length > 0}
                   likes={post._count.likes ?? 0}
                 />
               </Card.Foot>

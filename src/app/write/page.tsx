@@ -1,5 +1,6 @@
 import { addPost } from "@/actions/posts/add";
 import Button from "@/components/ui/Button";
+import SubmitButton from "@/app/write/ActionButton";
 
 const Write = async () => {
   return (
@@ -16,9 +17,7 @@ const Write = async () => {
             maxLength={200}
             className="resize-none focus:outline-0 w-80 h-36 p-3 rounded-2xl overflow-hidden"
           />
-          <Button variant="primary" type="submit">
-            پست کردن
-          </Button>
+          <SubmitButton />
         </form>
       </div>
     </section>

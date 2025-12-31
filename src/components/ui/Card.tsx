@@ -11,7 +11,7 @@ import Button from "./Button";
 
 const CardComponent = ({ children }: Children) => {
   return (
-    <article className="mx-2 my-0.5 p-4 rounded-2xl flex flex-col bg-stone-50 dark:bg-stone-950 border border-stone-300 dark:border-stone-800">
+    <article className="mx-2 my-0.5 p-4 rounded-2xl flex flex-col backdrop-blur-sm border border-stone-300 dark:border-stone-800">
       {children}
     </article>
   );

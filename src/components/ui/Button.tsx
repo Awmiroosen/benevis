@@ -3,6 +3,7 @@ type ButtonVariant = "primary" | "secondary" | "danger";
 type ButtonType = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   children?: React.ReactNode;
   variant?: ButtonVariant;
+  disable?: boolean;
 };
 
 const buttonVariants: Record<ButtonVariant, string> = {
@@ -16,12 +17,15 @@ const Button = ({
   children,
   className,
   variant = "primary",
+  disable = false,
   ...props
 }: ButtonType) => {
   return (
     <button
       {...props}
-      className={`px-2 py-0.5 cursor-pointer rounded-xl flex items-center transition-colors duration-150 ${buttonVariants[variant]} ${className}`}
+      className={`px-2 py-0.5 cursor-pointer rounded-xl flex items-center transition-colors duration-150 ${
+        buttonVariants[variant]
+      } ${className} ${disable && "opacity-50"} `}
     >
       {children}
     </button>
